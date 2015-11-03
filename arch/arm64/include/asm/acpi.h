@@ -83,6 +83,10 @@ static inline bool acpi_has_cpu_in_madt(void)
 static inline void arch_fix_phys_package_id(int num, u32 slot) { }
 void __init acpi_init_cpus(void);
 
+#ifdef CONFIG_ACPI_NUMA
+int arm64_acpi_numa_init(void);
+#endif /* CONFIG_ACPI_NUMA */
+
 #else
 static inline void acpi_init_cpus(void) { }
 #endif /* CONFIG_ACPI */
